@@ -1,0 +1,68 @@
+fieldset {
+  background: lightyellow;
+  border: 10px solid yellow;
+  margin-bottom: 10px;
+  width: 720px;
+}
+
+label {
+  width: 180px;
+  display: inline-block;
+  text-align: right;
+  vertical-align: top;
+}
+
+label:hover {
+  font-size:40px
+}
+
+input[type='checkbox'] {
+  width: auto;
+}
+
+textarea {
+  width: 360px;
+  height: 50px;
+}
+
+.widthAuto {
+  width: auto;
+}
+
+.setRanges {
+  display: inline-block;
+  position: relative;
+  width: 265px;
+  height: 20px;
+}
+
+.setRanges > * {
+  position: absolute;
+  top: 0;
+}
+
+.setRanges input {
+  left: 65px;
+}
+
+.red, .purple {
+  text-align: center;
+  width: 60px;
+  color: white;
+  height: 24px;
+  padding-top: 3px;
+}
+
+.red {
+  background-color: red;
+  left: 0;
+}
+
+.purple {
+  background-color: purple;
+  right: 0;
+}
+
+img#preview {
+  max-width: 200px;
+}
