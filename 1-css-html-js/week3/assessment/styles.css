@@ -15,3 +15,10 @@ div {
 #leftSide {
   border-right: 1px solid black;
 }
+
+.gameOver {
+  position: absolute;
+  left: 10%;
+  top: 30%;
+  font-size: 5em;
+}
