@@ -11,11 +11,14 @@ var numberOfFaces = 5,
     };
 
 function generateFaces() {
-  var face = _new("img");
-  face.src = "smile.png";
-  face.style.top = _getRandomInt(0, container.width - img.width) + "px";
-  face.style.left = _getRandomInt(0, container.height - img.height) + "px";
-  body.appendChild(face);
+  while(numberOfFaces > 0) {
+    var face = _new("img");
+    face.src = "smile.png";
+    face.style.top = _getRandomInt(0, container.width - img.width) + "px";
+    face.style.left = _getRandomInt(0, container.height - img.height) + "px";
+    theLeftSide.appendChild(face);
+    numberOfFaces--;
+  }
 }
 
 function _new(element) {
