@@ -1,10 +1,10 @@
 div {
   display: inline-block;
-  position: absolute;
+  position: relative;
 }
 
 img {
-  position: relative;
+  position: absolute;
 }
 
 div {
@@ -13,6 +13,5 @@ div {
 }
 
 #leftSide {
-  border-left: 1px solid black;
-  left: 500px;
+  border-right: 1px solid black;
 }

@@ -1,5 +1,6 @@
 var numberOfFaces = 5,
     theLeftSide = document.getElementById('leftSide'),
+    theRightSide = document.getElementById("rightSide"),
     body = document.getElementsByTagName("body")[0],
     container = {
       width: 500,
@@ -19,6 +20,14 @@ function generateFaces() {
     theLeftSide.appendChild(face);
     numberOfFaces--;
   }
+
+  clone();
+}
+
+function clone() {
+  leftSideImages = theLeftSide.cloneNode(true);
+  leftSideImages.removeChild(leftSideImages.lastChild);
+  theRightSide.innerHTML = leftSideImages.innerHTML;
 }
 
 function _new(element) {
