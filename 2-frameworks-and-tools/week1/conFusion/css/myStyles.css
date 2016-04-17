@@ -4,27 +4,60 @@
 }
 
 .row-content {
+  min-height: 400px;
   margin: 0px auto;
   padding: 50px 0 50px 0;
   border-bottom: 1px ridge;
-  min-height: 400px;
 }
 
 .row-footer {
-  background-color: #AFAFAF;
   margin: 0 auto;
   padding: 20px 0 20px 0;
+  background-color: #AFAFAF;
 }
 
 .jumbotron  {
-  padding: 70px 30px;
   margin: 0 auto;
-  background: #7986CB;
+  padding: 70px 30px;
   color: floralwhite;
+  background: #7986CB;
 }
 
 address {
-  font-size: 80%;
   margin: 0;
   color: #0f0f0f;
+  font-size: 80%;
+}
+
+body{
+    z-index:0;
+    padding:50px 0px 0px 0px;
+}
+
+.navbar-inverse {
+     background: #303F9F;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background: #1A237E;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+ .navbar-inverse .navbar-nav > .open > a:hover,
+ .navbar-inverse .navbar-nav > .open > a:focus {
+    color: #fff;
+    background: #1A237E;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu> li> a,
+.navbar-inverse .navbar-nav .open .dropdown-menu {
+    color:#eeeeee;
+    background-color: #303F9F;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu> li> a:hover {
+    color:#000000;
 }
