@@ -8,3 +8,7 @@ $(function () {
     format: 'LT'
   });
 });
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
