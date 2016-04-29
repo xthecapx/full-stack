@@ -8,7 +8,7 @@
     <title>Ristorante Con Fusion</title>
     <link href="../../week1/conFusion/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../week1/conFusion/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="../../week1/conFusion/css/myStyles.css" rel="stylesheet">
+    <link href="css/myStyles.css" rel="stylesheet">
     <link href="../../week1/conFusion/css/font-awesome.min.css" rel="stylesheet">
     <link href="../../week1/conFusion/css/bootstrap-social.css" rel="stylesheet">    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -72,25 +72,58 @@
                       </a>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-right" role="login">
-                  <div class="form-group">
-                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-                  </div>
-                  <div class="form-group">
-                    <label class="sr-only" for="exampleInputPassword3">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
-                  </div>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a data-toggle="modal" data-target="#loginModal">
+                    <span class="glyphicon glyphicon-log-in"></span> Login</a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="loginModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Login </h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="exampleInputEmail3">Email address</label>
+                <div class="col-sm-10">
+                  <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="exampleInputPassword3">Password</label>
+                <div class="col-sm-10">
+                  <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
                   <div class="checkbox">
                     <label>
                       <input type="checkbox"> Remember me
                     </label>
                   </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
                   <button type="submit" class="btn btn-info">Sign in</button>
-                </form>
-            </div>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+
     <header class="jumbotron">
 
         <!-- Main component for a primary marketing message or call to action -->
@@ -400,10 +433,13 @@
             </div>
         </div>
     </footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
+    <script type="text/javascript" src="../../week1/conFusion/js/transition.js"></script>
+    <script type="text/javascript" src="../../week1/conFusion/js/collapse.js"></script>
     <script src="../../week1/conFusion/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="../../week1/conFusion/js/datetime.js"></script>
 </body>
 
 </html>
