@@ -1,7 +1,8 @@
 /node_modules
-/bower_components
-!/bower_components/bootstrap/dist/*
-!/bower_components/font-awesome/css/*
-!/bower_components/jquery/dist/jquery.min.js
+bower_components/*
+!bower_components/bootstrap/dist/*
+!bower_components/font-awesome/css/*
+!bower_components/jquery/dist/jquery.min.js
+!.gitignore
 /test
 /tests
