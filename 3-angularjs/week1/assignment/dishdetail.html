@@ -44,11 +44,55 @@
         </div>
       </div>
       <div class="col-xs-9 col-xs-offset-1">
-        <blockquote ng-repeat="comments in controller.dish.comments">
-          <p>{{comments.rating}} Starts</p>
-          <p>{{comments.comment}}</p>
-          <footer>{{comments.author}} {{comments.date | date}}</footer>
-        </blockquote>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <h2>Customer Comments</h2>
+            <!--<em>Sort by:</em> <input type="texy" ng-model="controller.sort">-->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <form name="sortForm" class="form-horizontal">
+              <div class="form-group form-group-lg">
+                <label class="col-sm-2 control-label" for="formGroupInputLarge">Sort by:</label>
+                <div class="col-sm-10">
+                  <select
+                    class="input-sm"
+                    name="sortOptions"
+                    id="sortOptions"
+                    ng-model="controller.sortSelected">
+                    <option ng-repeat="option in controller.sortOptions" value="{{option.id}}">{{option.value}}</option>
+                  </select>
+                  <button
+                    class="btn btn-info"
+                    ng-show="controller.reverse"
+                    ng-click="controller.reverse = !controller.reverse">
+                    <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+                  </button>
+                  <button
+                    class="btn btn-info"
+                    ng-show="!controller.reverse"
+                    ng-click="controller.reverse = !controller.reverse">
+                    <span class="glyphicon glyphicon-sort-by-attributes"></span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <blockquote ng-repeat="comments in controller.dish.comments | orderBy:controller.sortOptions[controller.sortSelected].value:controller.reverse">
+              <p>{{comments.rating}} Starts</p>
+              <p>{{comments.comment}}</p>
+              <footer>{{comments.author}} {{comments.date | date}}</footer>
+            </blockquote>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -96,6 +140,12 @@
             date:"2011-12-02T17:57:28.556094Z"
           }
         ]};
+      this.reverse = false;
+      this.sortOptions = [
+        {id: '1', value: 'author', reverse: false},
+        {id: '2', value: 'date', reverse: false},
+        {id: '3', value: 'rating', reverse: false}
+      ];
     });
   </script>
 </body>
