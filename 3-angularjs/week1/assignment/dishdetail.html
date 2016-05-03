@@ -26,8 +26,7 @@
 <body>
   <div class="container">
     <div class="row row-content" ng-controller="dishDetailController as controller">
-      <div class="col-xs-12" ng-model="dish">
-        <!-- Single Object-->
+      <div class="col-xs-12">
         <div class="media">
           <div class="media-left media-middle">
             <a href="#">
@@ -43,6 +42,13 @@
             <p>{{controller.dish.description}}</p>
           </div>
         </div>
+      </div>
+      <div class="col-xs-9 col-xs-offset-1">
+        <blockquote ng-repeat="comments in controller.dish.comments">
+          <p>{{comments.rating}} Starts</p>
+          <p>{{comments.comment}}</p>
+          <footer>{{comments.author}} {{comments.date | date}}</footer>
+        </blockquote>
       </div>
     </div>
   </div>
