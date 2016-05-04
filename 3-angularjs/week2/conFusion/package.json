@@ -3,6 +3,8 @@
   "private": true,
   "devDependencies": {
     "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^1.0.0",
     "jit-grunt": "^0.10.0",
     "jshint-stylish": "^2.2.0",
