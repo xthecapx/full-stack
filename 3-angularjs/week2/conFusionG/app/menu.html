@@ -26,50 +26,28 @@
 
 <body>
     <div class="container">
-        <div class="row row-content" ng-controller="menuController as menuCtrl">
+        <div class="row row-content" ng-controller="MenuController">
             <div class="col-xs-12">
-              <!-- Single Object-->
-              <!--<div class="media">
-                <div class="media-left media-middle">
-                  <a href="#">
-                    <img class="media-object img-thumbnail"
-                    ng-src={{dish.image}} alt="Uthappizza">
-                  </a>
-                </div>
-                <div class="media-body">
-                  <h2 class="media-heading">
-                    {{dish.name}}
-                    <span class="label label-danger">{{dish.label}}</span>
-                    <span class="badge">{{dish.price | currency}}</span>
-                  </h2>
-                  <p>{{dish.description}}</p>
-                  <p>Comment: {{dish.comment}}</p>
-                  <p>Type your comment:
-                  <input type="texy" ng-model="dish.comment"></p>
-                </div>
-              </div>
-            </div>-->
-
-            <!-- Tabs -->
+            <button ng-click="toggleDetails()" class="btn btn-xs btn-primary pull-right"                    type="button">
+              {{showDetails ? 'Hide Details' : 'Show Details'}}
+            </button>
             <ul class="nav nav-tabs" role="tablist">
-              <li ng-class="{active:menuCtrl.isSelected(1)}" role="presentation">
-                <a ng-click="menuCtrl.select(1)" aria-controls="all menu" role="tab">The Menu</a>
+              <li ng-class="{active:isSelected(1)}" role="presentation">
+                <a ng-click="select(1)" aria-controls="all menu" role="tab">The Menu</a>
               </li>
-              <li ng-class="{active:menuCtrl.isSelected(2)}" role="presentation">
-                <a ng-click="menuCtrl.select(2)" aria-controls="appetizers"role="tab">Appetizers</a>
+              <li ng-class="{active:isSelected(2)}" role="presentation">
+                <a ng-click="select(2)" aria-controls="appetizers"role="tab">Appetizers</a>
               </li>
-              <li ng-class="{active:menuCtrl.isSelected(3)}" role="presentation">
-                <a ng-click="menuCtrl.select(3)" aria-controls="mains" role="tab">Mains</a>
+              <li ng-class="{active:isSelected(3)}" role="presentation">
+                <a ng-click="select(3)" aria-controls="mains" role="tab">Mains</a>
               </li>
-              <li ng-class="{active:menuCtrl.isSelected(4)}" role="presentation">
-                <a ng-click="menuCtrl.select(4)" aria-controls="desserts" role="tab">Desserts</a>
+              <li ng-class="{active:isSelected(4)}" role="presentation">
+                <a ng-click="select(4)" aria-controls="desserts" role="tab">Desserts</a>
               </li>
             </ul>
-
-            <!-- Array of objects -->
             <div class="tab-content">
               <ul class="media-list tab-pane fade in active">
-                  <li class="media" ng-repeat="dish in menuCtrl.dishes | filter:menuCtrl.filtText">
+                  <li class="media" ng-repeat="dish in dishes | filter:filtText">
                       <div class="media-left media-middle">
                           <a href="#">
                           <img class="media-object img-thumbnail"
@@ -80,11 +58,7 @@
                           <h2 class="media-heading">{{dish.name}}
                            <span class="label label-danger">{{dish.label}}</span>
                            <span class="badge">{{dish.price | currency}}</span></h2>
-                          <p>{{dish.description}}</p>
-                          <!-- Data binding -->
-                          <!--<p>Comment: {{dish.comment}}</p>
-                          <p>Type your comment:
-                           <input type="text" ng-model="dish.comment"></p>-->
+                          <p ng-show="showDetails">{{dish.description}}</p>
                       </div>
                   </li>
               </ul>
