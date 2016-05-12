@@ -10,11 +10,11 @@
     <title>Ristorante Con Fusion: Menu</title>
         <!-- Bootstrap -->
 <!-- build:css styles/main.css -->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="styles/bootstrap-social.css" rel="stylesheet">
-    <link href="styles/mystyles.css" rel="stylesheet">
+    <link href="../conFusion/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../conFusion/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../conFusion/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../conFusion/app/styles/bootstrap-social.css" rel="stylesheet">
+    <link href="../conFusion/app/styles/mystyles.css" rel="stylesheet">
 <!-- endbuild -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -28,33 +28,128 @@
 <body>
 
     <div class="container">
-        <div class="row row-content">
+        <div class="row row-content" ng-controller="dishDetailController">
             <div class="col-xs-12">
-                <p>Put the dish details here</p>
-                <p>You should have completed this in Assignment 1</p>
+              <div class="media">
+                <div class="media-left media-middle">
+                  <a href="#">
+                    <img class="media-object img-thumbnail" ng-src={{dish.image}} alt="Uthappizza">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h2 class="media-heading">
+                    {{dish.name}}
+                    <span class="label label-danger">{{dish.label}}</span>
+                    <span class="badge">{{dish.price | currency}}</span>
+                  </h2>
+                  <p>{{dish.description}}</p>
+                </div>
+              </div>
             </div>
             <div class="col-xs-9 col-xs-offset-1">
-                <p>Put the comments here</p>
-                <p>You should have completed this in Assignment 1</p>
+              <div class="row">
+                <div class="col-xs-12">
+                  <h2>Customer Comments</h2>
+                  <!--<em>Sort by:</em> <input type="texy" ng-model="controller.sort">-->
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <form name="sortForm" class="form-horizontal">
+                    <div class="form-group form-group-lg">
+                      <label class="col-sm-2 control-label" for="formGroupInputLarge">Sort by:</label>
+                      <div class="col-sm-10">
+                        <select
+                          class="input-sm"
+                          name="sortOptions"
+                          id="sortOptions"
+                          ng-model="sortSelected">
+                          <option ng-repeat="option in sortOptions" value="{{option.id}}">{{option.value}}</option>
+                        </select>
+                        <button
+                          class="btn btn-info"
+                          ng-show="reverse"
+                          ng-click="reverse = !reverse">
+                          <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+                        </button>
+                        <button
+                          class="btn btn-info"
+                          ng-show="!reverse"
+                          ng-click="reverse = !reverse">
+                          <span class="glyphicon glyphicon-sort-by-attributes"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <blockquote ng-repeat="comments in dish.comments | orderBy:sortOptions[sortSelected].value:reverse">
+                    <p>{{comments.rating}} Starts</p>
+                    <p>{{comments.comment}}</p>
+                    <footer>{{comments.author}} {{comments.date | date}}</footer>
+                  </blockquote>
+                </div>
+              </div>
             </div>
             <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
-                    <ul class="list-unstyled">
-						<p>Task 3: Here you include the code to show the live preview of the comment</p>
-						<p>The comment should be shown only when the form contains valid
-						information and is not pristine</p>
-                    </ul>
-                <form class="form-horizontal" name="commentForm"
+                <ul class="list-unstyled">
+          				<p>Task 3: Here you include the code to show the live preview of the comment</p>
+          				<p>The comment should be shown only when the form contains valid information and is not pristine</p>
+                </ul>
+                <form name="newCommentForm" class="form-horizontal" name="commentForm"
                 		ng-submit="submitComment()" novalidate>
-					<p>Task 1: Design the form to submit the comments</p>
-					<p>Task 2: You need to validate that the user name and comments are entered</p>
+					          <!--<p>Task 1: Design the form to submit the comments</p>
+					          <p>Task 2: You need to validate that the user name and comments are entered</p> -->
+                    <div class="form-group" ng-class="{ 'has-error' : feedback.firstname.$error.required && !feedback.firstname.$pristine }">
+                        <label for="firstname" class="col-sm-2 control-label">First Name</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter First Name" ng-model="newComment.name" required>
+                          <span ng-show="newComment.firstname.$error.required && !newComment.firstname.$pristine" class="help-block">Your First name is required.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="rating" class="col-sm-2 control-label">Number of Guests {{newComment.rating}}</label>
+                      <div class="col-sm-10">
+                        <label class="radio-inline">
+                          <input type="radio" ng-model="newComment.rating" name="rating" id="inlineRadio1" value=1> 1
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" ng-model="newComment.rating" name="rating" id="inlineRadio2" value=2> 2
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" ng-model="newComment.rating" name="rating" id="inlineRadio3" value=3> 3
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" ng-model="newComment.rating" name="rating" id="inlineRadio4" value=4> 4
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" ng-model="newComment.rating" name="rating" id="inlineRadio5" value=5> 5
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="comments" class="col-sm-2 control-label">Your Feedback</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="comments" name="comments" rows="12" ng-model="newComment.comment"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Submit Comment</button>
+                      </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
 <!-- build:js scripts/main.js -->
-    <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="scripts/app.js"></script>
+    <script src="../conFusion/bower_components/angular/angular.min.js"></script>
+    <script src="app.js"></script>
 <!-- endbuild -->
 
 </body>
