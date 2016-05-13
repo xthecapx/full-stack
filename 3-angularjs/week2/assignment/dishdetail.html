@@ -97,8 +97,14 @@
             </div>
             <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
                 <ul class="list-unstyled">
-          				<p>Task 3: Here you include the code to show the live preview of the comment</p>
-          				<p>The comment should be shown only when the form contains valid information and is not pristine</p>
+                  <div class="preview" ng-show="newCommentForm.name.$valid && newCommentForm.comment.$valid">
+                    <h3>Comment Preview</h3>
+                    <blockquote>
+                      <p>{{newComment.rating}} Starts</p>
+                      <p>{{newComment.comment}}</p>
+                      <footer>{{newComment.name}} {{newComment.date | date}}</footer>
+                    </blockquote>
+                  </div>
                 </ul>
                 <form name="newCommentForm" class="form-horizontal" name="commentForm"
                 		ng-submit="submitComment()" novalidate>
