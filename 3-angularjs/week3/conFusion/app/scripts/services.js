@@ -7,7 +7,7 @@ angular
     var dishes = [
       {
         name:'Uthapizza',
-        image: 'images/uthapizza.png',
+        image: 'app/images/uthapizza.png',
         category: 'mains',
         label: 'Hot',
         price: '4.99',
@@ -47,7 +47,7 @@ angular
       },
       {
         name:'Zucchipakoda',
-        image: 'images/zucchipakoda.png',
+        image: 'app/images/zucchipakoda.png',
         category: 'appetizer',
         label: '',
         price: '1.99',
@@ -87,7 +87,7 @@ angular
       },
       {
         name:'Vadonut',
-        image: 'images/vadonut.png',
+        image: 'app/images/vadonut.png',
         category: 'appetizer',
         label:'New',
         price:'1.99',
@@ -127,7 +127,7 @@ angular
       },
       {
         name:'ElaiCheese Cake',
-        image: 'images/elaicheesecake.png',
+        image: 'app/images/elaicheesecake.png',
         category: 'dessert',
         label:'',
         price:'2.99',

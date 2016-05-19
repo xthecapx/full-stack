@@ -8,10 +8,10 @@ var gulp = require('gulp'),
 
 gulp.task('serve', function () {
    var files = [
-      'templates/*.html',
-      'index.html',
-      'styles/*.css',
-      'scripts/*.js'
+      'app/templates/*.html',
+      'app/index.html',
+      'app/styles/*.css',
+      'app/scripts/*.js'
    ];
 
    browserSync.init(files, {
@@ -22,5 +22,5 @@ gulp.task('serve', function () {
    });
 
   // Watch any files in dist/, reload on change
-  gulp.watch(['scripts/*.js', 'styles/*.css', 'templates/*.html', 'index.html']).on('change', browserSync.reload);
+  gulp.watch(['app/scripts/*.js', 'app/styles/*.css', 'app/templates/*.html', 'index.html']).on('change', browserSync.reload);
 });
