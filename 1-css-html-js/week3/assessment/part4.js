@@ -32,7 +32,7 @@ function generateFaces() {
   }
 
   //This lane help to win the game
-  theLeftSide.lastChild.style.border = "5px solid red";
+  //theLeftSide.lastChild.style.border = "5px solid red";
   addClickListener();
   cloneFaces();
   timer();
