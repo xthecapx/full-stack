@@ -7,7 +7,11 @@ img {
   position: absolute;
 }
 
-div {
+#timer {
+  width: 100%;
+}
+
+#leftSide, #rightSide {
   width: 500px;
   height: 500px;
 }
