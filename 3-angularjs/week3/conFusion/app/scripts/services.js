@@ -6,7 +6,7 @@ angular
     var menufac = {};
     var dishes = [
       {
-        _id: 1,
+        _id: 0,
         name:'Uthapizza',
         image: 'app/images/uthapizza.png',
         category: 'mains',
@@ -47,7 +47,7 @@ angular
         ]
       },
       {
-        _id: 2,
+        _id: 1,
         name:'Zucchipakoda',
         image: 'app/images/zucchipakoda.png',
         category: 'appetizer',
@@ -88,7 +88,7 @@ angular
         ]
       },
       {
-        _id: 3,
+        _id: 2,
         name:'Vadonut',
         image: 'app/images/vadonut.png',
         category: 'appetizer',
@@ -129,7 +129,7 @@ angular
         ]
       },
       {
-        _id: 4, 
+        _id: 3, 
         name:'ElaiCheese Cake',
         image: 'app/images/elaicheesecake.png',
         category: 'dessert',

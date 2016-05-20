@@ -42,8 +42,8 @@ angular
 
   }])
 
-  .controller('DishDetailController', ['$scope', 'menuFactory', function($scope, menuFactory) {
-      $scope.dish = menuFactory.getDish(3);
+  .controller('DishDetailController', ['$scope', '$routeParams', 'menuFactory', function($scope, $routeParams, menuFactory) {
+      $scope.dish = menuFactory.getDish(parseInt($routeParams.id,10));
       $scope.reverse = false;
       $scope.sortOptions = [
         {id: '1', value: 'author', reverse: false},
