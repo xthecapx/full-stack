@@ -1,26 +1,24 @@
 var gulp = require('gulp'),
-    notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    changed = require('gulp-changed'),
-    rev = require('gulp-rev'),
-    browserSync = require('browser-sync').create(),
-    del = require('del');
+    browserSync = require('browser-sync').create();
 
 gulp.task('serve', function () {
    var files = [
       'app/templates/*.html',
+      'index.html',
       'app/index.html',
       'app/styles/*.css',
       'app/scripts/*.js'
    ];
 
-   browserSync.init(files, {
+   browserSync.init({
       server: {
-         baseDir: "./",
-         index: "app/index.html"
+        baseDir: "./app",
+        routes: {
+          "/bower_components": "./bower_components"
+        }
       }
    });
 
   // Watch any files in dist/, reload on change
-  gulp.watch(['app/scripts/*.js', 'app/styles/*.css', 'app/templates/*.html', 'index.html']).on('change', browserSync.reload);
+  gulp.watch(files).on('change', browserSync.reload);
 });
