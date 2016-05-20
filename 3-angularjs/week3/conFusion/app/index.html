@@ -11,9 +11,9 @@
     <title>Ristorante Con Fusion</title>
         <!-- Bootstrap -->
 <!-- build:css styles/main.css -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="app/styles/bootstrap-social.css" rel="stylesheet">
     <link href="app/styles/mystyles.css" rel="stylesheet">
 <!-- endbuild -->
@@ -80,7 +80,7 @@
         </div>
     </header>
 
-    <ng-include src="'app/templates/contactus.html'"></ng-include>
+    <ng-view></ng-view>
 
     <footer class="row-footer">
         <div class="container">
@@ -126,7 +126,8 @@
     </footer>
 
 <!-- build:js scripts/main.js -->
-    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
     <script src="app/scripts/app.js" charset="utf-8"></script>
     <script src="app/scripts/controllers.js" charset="utf-8"></script>
     <script src="app/scripts/services.js"></script>
