@@ -1,23 +1,63 @@
 'use strict';
 
 angular
-  .module('confusionApp', ['ngRoute'])
-  .config(function($routeProvider) {
-    $routeProvider
+  .module('confusionApp', ['ui.router'])
+  .config(function($stateProvider, $urlRouterProvider) {
+      $stateProvider
+      // route for the home page
+      .state('app', {
+          url: '/',
+          views: {
+              'header': {
+                  templateUrl: '../views/header.html'
+              },
+              'content': {
+                  template: '<h1>To be Completed</h1>'
+                  //controller: 'IndexController'
+              },
+              'footer': {
+                  templateUrl: '../views/footer.html'
+              }
+          }
+      })
+      // route for the aboutus page
+      .state('app.aboutus', {
+          url: 'aboutus',
+          views: {
+              'content@': {
+                  template: '<h1>To be Completed</h1>'
+             }
+          }
+      })
       // route for the contactus page
-      .when('/contactus', {
-        templateUrl : 'templates/contactus.html',
-        controller  : 'ContactController'
+      .state('app.contactus', {
+          url: 'contactus',
+          views: {
+              'content@': {
+                  templateUrl: '../templates/contactus.html',
+                  controller: 'ContactController'
+               }
+          }
       })
       // route for the menu page
-      .when('/menu', {
-        templateUrl : 'templates/menu.html',
-        controller  : 'MenuController'
+      .state('app.menu', {
+          url: 'menu',
+          views: {
+              'content@': {
+                  templateUrl: '../templates/menu.html',
+                  controller: 'MenuController'
+              }
+          }
       })
-      // route for the dish details page
-      .when('/menu/:id', {
-        templateUrl : 'templates/dishdetail.html',
-        controller  : 'DishDetailController'
-      })
-      .otherwise('/contactus');
-  });
+      // route for the dishdetail page
+      .state('app.dishdetails', {
+          url: 'menu/:id',
+          views: {
+              'content@': {
+                  templateUrl: '../templates/dishdetail.html',
+                  controller: 'DishDetailController'
+             }
+          }
+      });
+      $urlRouterProvider.otherwise('/');
+    });
