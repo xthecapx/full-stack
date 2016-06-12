@@ -114,4 +114,12 @@ angular
         $scope.feedbackForm.$setPristine();
       }
     };
+  }])
+
+  .controller('HomeController', ['$scope', 'homeService' , function($scope, homeService) {
+      $scope.items = homeService.getItems();
+  }])
+
+  .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory) {
+      $scope.leaders = corporateFactory.getLeaders();
   }]);

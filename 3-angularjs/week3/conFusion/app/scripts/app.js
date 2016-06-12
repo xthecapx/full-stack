@@ -12,8 +12,8 @@ angular
                   templateUrl: '../views/header.html'
               },
               'content': {
-                  template: '<h1>To be Completed</h1>'
-                  //controller: 'IndexController'
+                templateUrl: '../templates/home.html',
+                controller: 'HomeController'
               },
               'footer': {
                   templateUrl: '../views/footer.html'
@@ -24,9 +24,10 @@ angular
       .state('app.aboutus', {
           url: 'aboutus',
           views: {
-              'content@': {
-                  template: '<h1>To be Completed</h1>'
-             }
+            'content@': {
+              templateUrl : '../templates/aboutus.html',
+              controller  : 'AboutController'
+            }
           }
       })
       // route for the contactus page
