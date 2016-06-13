@@ -9,14 +9,14 @@ angular
           url: '/',
           views: {
               'header': {
-                  templateUrl: '../app/views/header.html'
+                  templateUrl: 'views/header.html'
               },
               'content': {
-                templateUrl: '../app/templates/home.html',
+                templateUrl: 'templates/home.html',
                 controller: 'HomeController'
               },
               'footer': {
-                  templateUrl: '../app/views/footer.html'
+                  templateUrl: 'views/footer.html'
               }
           }
       })
@@ -25,7 +25,7 @@ angular
           url: 'aboutus',
           views: {
             'content@': {
-              templateUrl : '../app/templates/aboutus.html',
+              templateUrl : 'templates/aboutus.html',
               controller  : 'AboutController'
             }
           }
@@ -35,7 +35,7 @@ angular
           url: 'contactus',
           views: {
               'content@': {
-                  templateUrl: '../app/templates/contactus.html',
+                  templateUrl: 'templates/contactus.html',
                   controller: 'ContactController'
                }
           }
@@ -45,7 +45,7 @@ angular
           url: 'menu',
           views: {
               'content@': {
-                  templateUrl: '../app/templates/menu.html',
+                  templateUrl: 'templates/menu.html',
                   controller: 'MenuController'
               }
           }
@@ -55,7 +55,7 @@ angular
           url: 'menu/:id',
           views: {
               'content@': {
-                  templateUrl: '../app/templates/dishdetail.html',
+                  templateUrl: 'templates/dishdetail.html',
                   controller: 'DishDetailController'
              }
           }
