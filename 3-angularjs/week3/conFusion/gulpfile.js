@@ -1,5 +1,32 @@
 var gulp = require('gulp'),
-    browserSync = require('browser-sync').create();
+    usemin = require('gulp-usemin'),
+    browserSync = require('browser-sync').create(),
+    cleanCSS = require('gulp-clean-css'),
+    rev = require('gulp-rev'),
+    ngAnnotate = require('gulp-ng-annotate'),
+    uglify = require('gulp-uglify'),
+    flatten = require('gulp-flatten');
+
+
+gulp.task('copyimages', function() {
+    gulp.src('./app/images/*')
+    .pipe(gulp.dest('./dist/images'));
+});
+
+gulp.task('copyfonts', function() {
+    gulp.src('./bower_components/**/fonts/*.{ttf,woff,woff2,eof,svg}')
+    .pipe(flatten({ includeParents: 0} ))
+    .pipe(gulp.dest('./dist/fonts'));
+});
+
+gulp.task('dist', ['copyimages', 'copyfonts'], function () {
+  return gulp.src('./app/**/*.html')
+      .pipe(usemin({
+        css: [cleanCSS(), rev()],
+        js: [ngAnnotate(), uglify(), rev()]
+      }))
+      .pipe(gulp.dest('dist/'));
+});
 
 gulp.task('serve', function () {
    var files = [
